@@ -24,7 +24,18 @@ const Items = (props) => {
 };
 
 const Blog = async () => {
-  const res = await fetchTutorials(`*[_type == "blogs"]{_id, title, slug, description, _createdAt}`);
+  const res = await fetchTutorials(`*[_type == "blogs"]{
+    _id,
+    title,
+    slug,
+    description,
+    _createdAt,
+    image,
+    category,
+    views,
+    comments_no
+  }`)
+  ;
   return (
     <section className="text-gray-600 body-font overflow-hidden bg-[#f3f4f6]">
       <div className="py-10 mx-auto container px-5">

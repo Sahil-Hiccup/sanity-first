@@ -1,4 +1,4 @@
-import card from "../components/card";
+
 
 const Testiminiaol = () => {
   return (

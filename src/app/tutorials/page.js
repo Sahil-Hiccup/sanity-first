@@ -1,4 +1,4 @@
-import card from "../components/card";
+import Card from "../components/card";
 import { fetchTutorials } from "../sanity/api";
 
 const Tutorials = async () => {
@@ -18,32 +18,19 @@ const Tutorials = async () => {
 
         <div className="container px-5 mx-auto">
           <div className="flex flex-wrap -m-4">
-            {res.map((val, index) => {
-              const {
-                _id,
-                url,
-                image,
-                comments_no,
-                views,
-                description,
-                category,
-                title,
-              } = val;
-
-              return (
-                <card
-                  key={index}
-                  id={_id}
-                  url={url}
-                  image={val.image}
-                  comments_no={comments_no}
-                  views={views}
-                  description={description}
-                  category={category}
-                  title={title}
-                />
-              );
-            })}
+            {res.map((val) => (
+              <Card
+                key={val._id}
+                id={val._id}
+                title={val.title}
+                description={val.description}
+                category={val.category}
+                image={val.image}
+                views={val.views}
+                comments_no={val.comments_no}
+                url={`/blog/${val.slug?.current}`}
+              />
+            ))}
           </div>
         </div>
       </div>
