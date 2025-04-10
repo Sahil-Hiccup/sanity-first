@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from 'next/link'
-import card from "./components/card";
+import Card from "./components/card";
 import Testiminiaol from "./testiminioal/page";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <card />
+      <Card />
       <Testiminiaol />
     </>
   );

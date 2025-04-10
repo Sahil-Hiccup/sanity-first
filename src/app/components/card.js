@@ -1,6 +1,6 @@
 import { urlFor } from "../sanity/client";
 
-const card = (props) => {
+const Card = (props) => {
   const { id, url, image, comments_no, views, description, category, title } = props;
 
   return (
@@ -41,4 +41,4 @@ const card = (props) => {
   );
 };
 
-export default card;
+export default Card;

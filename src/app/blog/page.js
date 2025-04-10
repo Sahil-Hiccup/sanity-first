@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { fetchTutorials } from "../sanity/api";
+import { fetchTutorials } from "@/app/sanity/api";
 
 const Items = (props) => {
   return (
@@ -24,7 +24,7 @@ const Items = (props) => {
 };
 
 const Blog = async () => {
-  const res = await fetchTutorials(`*[_type == "blogs"]`);
+  const res = await fetchTutorials(`*[_type == "blogs"]{_id, title, slug, description, _createdAt}`);
   return (
     <section className="text-gray-600 body-font overflow-hidden bg-[#f3f4f6]">
       <div className="py-10 mx-auto container px-5">
