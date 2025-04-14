@@ -37,7 +37,7 @@ const Blog = async () => {
   }`)
   ;
   return (
-    <section className="text-gray-600 body-font overflow-hidden bg-[#f7f7f7]">
+    <section className="text-gray-600 body-font overflow-hidden bg-[#ebebeb]">
       <div className="py-10 mx-auto container px-5">
         <div className="-my-8 divide-y-2 divide-gray-100">
           {res.map((val, index) => (

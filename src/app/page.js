@@ -73,9 +73,16 @@ const HomePage = async () => {
       </section>
 
       {/* Blog Cards Section */}
-      <section className="text-gray-800 body-font bg-[#f9fafb] py-14 px-4">
+      <section className="text-gray-800 body-font bg-[#ebebeb] py-14 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-10">Latest from the Blog</h2>
+          <div className="text-center mb-10">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+          Latest from the Blog
+          </h1>
+          <div className="flex mt-6 justify-center">
+            <div className="w-16 h-1 rounded-full bg-indigo-500 inline-flex" />
+          </div>
+        </div>
           <div className="flex flex-wrap -m-4">
             {res.map((val) => (
               <Card
