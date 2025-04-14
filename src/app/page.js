@@ -77,7 +77,7 @@ const HomePage = async () => {
         <div className="container mx-auto">
           <div className="text-center mb-10">
           <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
-          Latest from the Blog
+          Latest From The Blog
           </h1>
           <div className="flex mt-6 justify-center">
             <div className="w-16 h-1 rounded-full bg-indigo-500 inline-flex" />
