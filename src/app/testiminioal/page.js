@@ -1,11 +1,30 @@
 "use client";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import TestimonialCard from "../components/TestimonialCard";
+import client from "../sanity/client";
 
 const Testimonial = () => {
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const query = '*[_type == "testimonials"]';
+      try {
+        const data = await client.fetch(query);
+        setTestimonials(data);  // Set the fetched data to state
+      } catch (err) {
+        console.error('Error fetching data from Sanity:', err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section className="text-gray-600 body-font bg-[#ebebeb]">
       <div className="container px-5 py-24 mx-auto">
@@ -18,115 +37,27 @@ const Testimonial = () => {
           </div>
         </div>
 
+        {/* Swiper container for carousel */}
         <Swiper
           modules={[Navigation, Pagination, A11y, Autoplay]}
           spaceBetween={30}
-          slidesPerView={2}
+          slidesPerView={1}
+          navigation
           pagination={{ clickable: true }}
+          autoplay={{ delay: 2500 }}
           loop={true}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-          }}
-          className="max-w-9xl mx-auto pb-10"
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-          }}
         >
-          {/* Slide 1 */}
-          <SwiperSlide>
-            <div className="m-7 h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl p-5">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="w-8 h-8 text-indigo-500 mb-4"
-                viewBox="0 0 975.036 975.036"
-              >
-                <path d="M925.036 57.197h-304c..." />
-              </svg>
-              <p className="leading-relaxed text-gray-700 italic mb-6">
-                “Synth chartreuse iPhone lomo cray raw denim brunch everyday.”
-              </p>
-              <div className="flex items-center">
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 font-semibold text-md">
-                    Holden Caulfield
-                  </h2>
-                  <p className="text-sm text-gray-500">UI Developer</p>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-
-          {/* Slide 2 */}
-          <SwiperSlide>
-            <div className="h-full bg-white p-5 shadow-md rounded-xl m-7">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="w-8 h-8 text-indigo-500 mb-4"
-                viewBox="0 0 975.036 975.036"
-              >
-                <path d="M925.036 57.197h-304c..." />
-              </svg>
-              <p className="leading-relaxed text-gray-700 italic mb-6">
-                “Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard
-                pabst authentic iceland.”
-              </p>
-              <div className="flex-grow">
-                <h2 className="text-gray-900 font-semibold text-md">
-                  Alper Kamu
-                </h2>
-                <p className="text-sm text-gray-500">Designer</p>
-              </div>
-            </div>
-          </SwiperSlide>
-
-          {/* Slide 3 */}
-          <SwiperSlide>
-            <div className="h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl m-7 p-5">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="w-8 h-8 text-indigo-500 mb-4"
-                viewBox="0 0 975.036 975.036"
-              >
-                <path d="M925.036 57.197h-304c..." />
-              </svg>
-              <p className="leading-relaxed text-gray-700 italic mb-6">
-                “Another amazing testimonial about product or service goes here.”
-              </p>
-              <div className="flex items-center">
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 font-semibold text-md">
-                    Jane Doe
-                  </h2>
-                  <p className="text-sm text-gray-500">Marketing Lead</p>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
+          {testimonials.map((testimonial) => (
+            <SwiperSlide key={testimonial._id}>
+              <TestimonialCard
+                description={testimonial.description}  // Passed description here
+                name={testimonial.Name}  // Passed Name here
+                designation={testimonial.designation}  // Passed designation here
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
-
-      {/* Optional global pagination styling */}
-      <style jsx global>{`
-        .swiper-pagination {
-          bottom: 0 !important;
-          text-align: center;
-      
-        }
-
-        .swiper-pagination-bullet {
-          background: #cbd5e0;
-          opacity: 1;
-        }
-
-        .swiper-pagination-bullet-active {
-          background: #6366f1;
-        }
-      `}</style>
     </section>
   );
 };
