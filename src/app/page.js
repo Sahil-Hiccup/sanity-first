@@ -1,9 +1,7 @@
-// app/page.js
-
 import Card from "./components/card";
 import { fetchTutorials } from "@/app/sanity/api";
 import Tutorials from "./tutorials/page";
-import Testiminiaol from "./testiminioal/page";
+import Testimonial from "./testimonial/page";
 
 const HomePage = async () => {
   const res = await fetchTutorials(`*[_type == "blogs"]{
@@ -27,18 +25,6 @@ const HomePage = async () => {
           background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         }}
       >
-        {/* Uncomment below to use background image instead of gradient */}
-        {/*
-        <section
-          className="relative text-white body-font"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1500&q=80')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        */}
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center relative z-10">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h1 className="title-font sm:text-5xl text-4xl mb-6 font-extrabold leading-tight">
@@ -76,13 +62,13 @@ const HomePage = async () => {
       <section className="text-gray-800 body-font bg-[#ebebeb] py-14 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-10">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
-          Latest From The Blog
-          </h1>
-          <div className="flex mt-6 justify-center">
-            <div className="w-16 h-1 rounded-full bg-indigo-500 inline-flex" />
+            <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+              Latest From The Blog
+            </h1>
+            <div className="flex mt-6 justify-center">
+              <div className="w-16 h-1 rounded-full bg-indigo-500 inline-flex" />
+            </div>
           </div>
-        </div>
           <div className="flex flex-wrap -m-4">
             {res.map((val) => (
               <Card
@@ -100,12 +86,12 @@ const HomePage = async () => {
           </div>
         </div>
       </section>
-
-      {/* Tutorials Section */}
       <section className="my-20">
-      <Tutorials />
+        <Tutorials />
       </section>
-      <Testiminiaol />
+      <section className="my-20">
+        <Testimonial />
+      </section>
     </main>
   );
 };
