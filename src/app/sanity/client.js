@@ -7,7 +7,7 @@ const client = createClient({
   dataset: "production",
   apiVersion: "2023-01-01",
   useCdn: false,
-  token: process.env.NEXT_SANITY_TOKEN || '', // fallback
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN || '', // fallback
 });
 
 const builder = imageUrlBuilder(client);
