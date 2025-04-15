@@ -25,7 +25,7 @@ const Testimonial = () => {
           pagination={{ clickable: true }}
           loop={true}
           autoplay={{
-            delay: 1500,
+            delay: 2000,
             disableOnInteraction: false,
           }}
           className="max-w-9xl mx-auto"
@@ -36,7 +36,7 @@ const Testimonial = () => {
         >
           {/* Slide 1 */}
           <SwiperSlide>
-            <div className="h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl p-8">
+            <div className="h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl p-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -46,8 +46,7 @@ const Testimonial = () => {
                 <path d="M925.036 57.197h-304c..." />
               </svg>
               <p className="leading-relaxed text-gray-700 italic mb-6">
-                “Synth chartreuse iPhone lomo cray raw denim brunch everyday
-                carry neutra before they sold out fixie 90's microdosing.”
+                “Synth chartreuse iPhone lomo cray raw denim brunch everyday.”
               </p>
               <div className="flex items-center">
                 <div className="flex-grow">
@@ -62,7 +61,7 @@ const Testimonial = () => {
 
           {/* Slide 2 */}
           <SwiperSlide>
-            <div className="h-full bg-white p-8 shadow-md rounded-xl">
+            <div className="h-full bg-white p-5 shadow-md rounded-xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -86,7 +85,7 @@ const Testimonial = () => {
 
           {/* Slide 3 */}
           <SwiperSlide>
-            <div className="h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl p-8">
+            <div className="h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl p-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
