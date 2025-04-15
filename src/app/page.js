@@ -89,7 +89,7 @@ const HomePage = async () => {
       <section className="my-20">
         <Tutorials />
       </section>
-      <section className="my-20">
+      <section>
         <Testimonial />
       </section>
     </main>
