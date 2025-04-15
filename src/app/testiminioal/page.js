@@ -28,7 +28,7 @@ const Testimonial = () => {
             delay: 2000,
             disableOnInteraction: false,
           }}
-          className="max-w-9xl mx-auto"
+          className="max-w-9xl mx-auto pb-10"
           breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
@@ -36,7 +36,7 @@ const Testimonial = () => {
         >
           {/* Slide 1 */}
           <SwiperSlide>
-            <div className="h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl p-5">
+            <div className="m-7 h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl p-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -61,7 +61,7 @@ const Testimonial = () => {
 
           {/* Slide 2 */}
           <SwiperSlide>
-            <div className="h-full bg-white p-5 shadow-md rounded-xl">
+            <div className="h-full bg-white p-5 shadow-md rounded-xl m-7">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -85,7 +85,7 @@ const Testimonial = () => {
 
           {/* Slide 3 */}
           <SwiperSlide>
-            <div className="h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl p-5">
+            <div className="h-full bg-white/70 backdrop-blur-md shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 rounded-xl m-7 p-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -109,6 +109,24 @@ const Testimonial = () => {
           </SwiperSlide>
         </Swiper>
       </div>
+
+      {/* Optional global pagination styling */}
+      <style jsx global>{`
+        .swiper-pagination {
+          bottom: 0 !important;
+          text-align: center;
+      
+        }
+
+        .swiper-pagination-bullet {
+          background: #cbd5e0;
+          opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+          background: #6366f1;
+        }
+      `}</style>
     </section>
   );
 };
