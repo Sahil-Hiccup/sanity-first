@@ -48,7 +48,7 @@ const Testimonial = () => {
         </div>
 
         {loading ? (
-          <p>Loading testimonials...</p>
+          <p>Loading testimonials.....</p>
         ) : testimonials.length === 0 ? (
           <p>No testimonials available.</p>
         ) : (
